@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Wishlist | Callie's Store</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/animations.css" />
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"> -->
+    <link rel="stylesheet" href="fontawesome-free-7.2.0-web/css/all.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="container nav-content">
+        <a href="index.html" class="logo">Callie's Store</a>
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="index.html#products" class="nav-link">Shop</a></li>
+        </ul>
+        <div class="nav-actions">
+          <button id="theme-toggle" class="icon-btn">
+            <i class="fas fa-moon"></i>
+          </button>
+          <a href="wishlist.html" class="icon-btn"
+            ><i class="far fa-heart"></i
+            ><span id="wishlist-count" class="badge">0</span></a
+          >
+          <a href="cart.html" class="icon-btn"
+            ><i class="fas fa-shopping-cart"></i
+            ><span id="cart-count" class="badge">0</span></a
+          >
+          <a href="login.html" id="user-btn" class="icon-btn"
+            ><i class="far fa-user"></i
+          ></a>
+        </div>
+      </div>
+    </nav>
+
+    <main class="container" style="padding: 4rem 0">
+      <h1 class="section-title">Your Wishlist</h1>
+
+      <div id="wishlist-grid" class="product-grid">
+        <!-- Wishlist items will be loaded here -->
+      </div>
+
+      <div
+        id="empty-wishlist-message"
+        style="display: none; text-align: center; padding: 4rem 0"
+      >
+        <i
+          class="far fa-heart"
+          style="
+            font-size: 4rem;
+            color: var(--border-color);
+            margin-bottom: 2rem;
+          "
+        ></i>
+        <h2>Your wishlist is empty</h2>
+        <p style="color: var(--text-muted); margin-bottom: 2rem">
+          Save items you love to your wishlist!
+        </p>
+        <a href="index.html#products" class="btn btn-primary"
+          >Explore Products</a
+        >
+      </div>
+    </main>
+
+    <div id="toast-container" class="toast-container"></div>
+
+    <script type="module" src="js/wishlist-page.js"></script>
+  </body>
+</html>

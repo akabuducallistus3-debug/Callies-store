@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Checkout | Callie's Store</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/animations.css" />
+    <!-- <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    /> -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="stylesheet" href="fontawesome-free-7.2.0-web/css/all.min.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="container nav-content">
+        <a href="index.html" class="logo">Callie's Store</a>
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="index.html#products" class="nav-link">Shop</a></li>
+        </ul>
+        <div class="nav-actions">
+          <button id="theme-toggle" class="icon-btn">
+            <i class="fas fa-moon"></i>
+          </button>
+          <a href="wishlist.html" class="icon-btn"
+            ><i class="far fa-heart"></i
+            ><span id="wishlist-count" class="badge">0</span></a
+          >
+          <a href="cart.html" class="icon-btn"
+            ><i class="fas fa-shopping-cart"></i
+            ><span id="cart-count" class="badge">0</span></a
+          >
+          <a href="login.html" id="user-btn" class="icon-btn"
+            ><i class="far fa-user"></i
+          ></a>
+        </div>
+      </div>
+    </nav>
+
+    <main class="container" style="padding: 4rem 0">
+      <h1 class="section-title">Checkout</h1>
+
+      <div
+        id="checkout-layout"
+        class="checkout-layout"
+        style="
+          display: grid;
+          grid-template-columns: 1fr 400px;
+          gap: 4rem;
+          align-items: start;
+        "
+      >
+        <!-- Checkout Form -->
+        <div
+          id="checkout-form-container"
+          style="
+            background: var(--card-bg);
+            padding: 2.5rem;
+            border-radius: 16px;
+            border: 1px solid var(--border-color);
+          "
+        >
+          <h2 style="margin-bottom: 2rem; font-size: 1.5rem">
+            Shipping Information
+          </h2>
+          <form
+            id="checkout-form"
+            style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem"
+          >
+            <div style="grid-column: span 2">
+              <label
+                style="display: block; margin-bottom: 0.5rem; font-weight: 500"
+                >Full Name</label
+              >
+              <input
+                type="text"
+                id="full-name"
+                required
+                style="
+                  width: 100%;
+                  padding: 0.75rem 1rem;
+                  border-radius: 8px;
+                  border: 1px solid var(--border-color);
+                  background: var(--bg-color);
+                  color: var(--text-main);
+                "
+              />
+            </div>
+            <div style="grid-column: span 2">
+              <label
+                style="display: block; margin-bottom: 0.5rem; font-weight: 500"
+                >Email Address</label
+              >
+              <input
+                type="email"
+                id="email"
+                required
+                style="
+                  width: 100%;
+                  padding: 0.75rem 1rem;
+                  border-radius: 8px;
+                  border: 1px solid var(--border-color);
+                  background: var(--bg-color);
+                  color: var(--text-main);
+                "
+              />
+            </div>
+            <div style="grid-column: span 2">
+              <label
+                style="display: block; margin-bottom: 0.5rem; font-weight: 500"
+                >Shipping Address</label
+              >
+              <input
+                type="text"
+                id="address"
+                required
+                style="
+                  width: 100%;
+                  padding: 0.75rem 1rem;
+                  border-radius: 8px;
+                  border: 1px solid var(--border-color);
+                  background: var(--bg-color);
+                  color: var(--text-main);
+                "
+              />
+            </div>
+            <div>
+              <label
+                style="display: block; margin-bottom: 0.5rem; font-weight: 500"
+                >City</label
+              >
+              <input
+                type="text"
+                id="city"
+                required
+                style="
+                  width: 100%;
+                  padding: 0.75rem 1rem;
+                  border-radius: 8px;
+                  border: 1px solid var(--border-color);
+                  background: var(--bg-color);
+                  color: var(--text-main);
+                "
+              />
+            </div>
+            <div>
+              <label
+                style="display: block; margin-bottom: 0.5rem; font-weight: 500"
+                >Postal Code</label
+              >
+              <input
+                type="text"
+                id="postal-code"
+                required
+                style="
+                  width: 100%;
+                  padding: 0.75rem 1rem;
+                  border-radius: 8px;
+                  border: 1px solid var(--border-color);
+                  background: var(--bg-color);
+                  color: var(--text-main);
+                "
+              />
+            </div>
+            <div style="grid-column: span 2; margin-top: 1rem">
+              <button
+                type="submit"
+                class="btn btn-primary"
+                style="width: 100%; padding: 1rem"
+              >
+                Place Order
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <!-- Order Summary -->
+        <div
+          id="order-summary"
+          class="order-summary-card"
+          style="
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 16px;
+            border: 1px solid var(--border-color);
+            position: sticky;
+            top: 100px;
+          "
+        >
+          <h2 style="margin-bottom: 1.5rem; font-size: 1.5rem">
+            Order Summary
+          </h2>
+          <div
+            id="checkout-items-list"
+            style="
+              display: flex;
+              flex-direction: column;
+              gap: 1rem;
+              margin-bottom: 1.5rem;
+              max-height: 300px;
+              overflow-y: auto;
+            "
+          >
+            <!-- Checkout items will be loaded here -->
+          </div>
+          <div
+            style="
+              display: flex;
+              justify-content: space-between;
+              margin-bottom: 1rem;
+              color: var(--text-muted);
+            "
+          >
+            <span>Subtotal</span>
+            <span id="subtotal-price">$0.00</span>
+          </div>
+          <div
+            style="
+              display: flex;
+              justify-content: space-between;
+              margin-bottom: 1rem;
+              color: var(--text-muted);
+            "
+          >
+            <span>Shipping</span>
+            <span>Free</span>
+          </div>
+          <div
+            style="
+              display: flex;
+              justify-content: space-between;
+              margin-top: 1.5rem;
+              padding-top: 1.5rem;
+              border-top: 1px solid var(--border-color);
+              font-weight: 700;
+              font-size: 1.25rem;
+            "
+          >
+            <span>Total</span>
+            <span id="total-price">$0.00</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Success Message -->
+      <div
+        id="success-message"
+        style="display: none; text-align: center; padding: 4rem 0"
+      >
+        <i
+          class="fas fa-check-circle"
+          style="font-size: 4rem; color: #10b981; margin-bottom: 2rem"
+        ></i>
+        <h2>Order Placed Successfully!</h2>
+        <p style="color: var(--text-muted); margin-bottom: 2rem">
+          Thank you for shopping with Callie's Store. Your order #<span
+            id="order-id"
+          ></span>
+          is being processed.
+        </p>
+        <a href="index.html" class="btn btn-primary">Continue Shopping</a>
+      </div>
+    </main>
+
+    <div id="toast-container" class="toast-container"></div>
+
+    <script type="module" src="js/checkout-page.js"></script>
+  </body>
+</html>

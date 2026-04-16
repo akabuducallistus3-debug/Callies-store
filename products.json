@@ -1,0 +1,82 @@
+[
+  {
+    "id": 1,
+    "name": "Minimalist Desk Lamp",
+    "price": 45.99,
+    "image": "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?auto=format&fit=crop&w=600&q=80",
+    "category": "Home Decor",
+    "rating": 4.5,
+    "description": "A sleek, modern desk lamp with adjustable brightness and a minimalist design that fits any workspace.",
+    "featured": true
+  },
+  {
+    "id": 2,
+    "name": "Wireless Noise-Cancelling Headphones",
+    "price": 199.99,
+    "image": "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=600&q=80",
+    "category": "Electronics",
+    "rating": 4.8,
+    "description": "Experience crystal-clear sound with our premium noise-cancelling headphones, perfect for travel and focus.",
+    "featured": true
+  },
+  {
+    "id": 3,
+    "name": "Ceramic Coffee Mug Set",
+    "price": 29.99,
+    "image": "https://images.unsplash.com/photo-1514228742587-6b1558fcca3d?auto=format&fit=crop&w=600&q=80",
+    "category": "Kitchen",
+    "rating": 4.2,
+    "description": "Handcrafted ceramic mugs in a set of four, featuring a unique matte finish and ergonomic handle.",
+    "featured": false
+  },
+  {
+    "id": 4,
+    "name": "Leather Travel Journal",
+    "price": 34.50,
+    "image": "https://images.unsplash.com/photo-1544816153-16ad461445ad?auto=format&fit=crop&w=600&q=80",
+    "category": "Stationery",
+    "rating": 4.7,
+    "description": "A high-quality leather-bound journal with premium paper, ideal for capturing your thoughts and adventures.",
+    "featured": true
+  },
+  {
+    "id": 5,
+    "name": "Smart Fitness Watch",
+    "price": 129.00,
+    "image": "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=600&q=80",
+    "category": "Electronics",
+    "rating": 4.6,
+    "description": "Track your workouts, heart rate, and sleep with this stylish and durable smart fitness watch.",
+    "featured": false
+  },
+  {
+    "id": 6,
+    "name": "Organic Cotton Tote Bag",
+    "price": 15.00,
+    "image": "https://images.unsplash.com/photo-1544816153-16ad461445ad?auto=format&fit=crop&w=600&q=80",
+    "category": "Accessories",
+    "rating": 4.3,
+    "description": "Eco-friendly and spacious tote bag made from 100% organic cotton, perfect for daily errands.",
+    "featured": false
+  },
+  {
+    "id": 7,
+    "name": "Bamboo Cutting Board",
+    "price": 24.99,
+    "image": "https://images.unsplash.com/photo-1584346133934-a3afd2a33c4c?auto=format&fit=crop&w=600&q=80",
+    "category": "Kitchen",
+    "rating": 4.4,
+    "description": "Durable and sustainable bamboo cutting board with a juice groove, essential for any modern kitchen.",
+    "featured": false
+  },
+  {
+    "id": 8,
+    "name": "Aromatic Soy Candle",
+    "price": 18.50,
+    "image": "https://images.unsplash.com/photo-1602874801007-bd458bb1b8b6?auto=format&fit=crop&w=600&q=80",
+    "category": "Home Decor",
+    "rating": 4.9,
+    "description": "Hand-poured soy candle with a calming lavender and vanilla scent, providing up to 40 hours of burn time.",
+    "featured": true
+  }
+]
