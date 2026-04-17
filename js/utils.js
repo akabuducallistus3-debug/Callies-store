@@ -4,18 +4,18 @@
 
 // Format currency
 export const formatCurrency = (amount) => {
-  return new Intl.NumberFormat('en-US', {
-    style: 'currency',
-    currency: 'USD',
+  return new Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency: "USD",
   }).format(amount);
 };
 
 // Show toast notification
-export const showToast = (message, type = 'success') => {
-  const container = document.getElementById('toast-container');
+export const showToast = (message, type = "success") => {
+  const container = document.getElementById("toast-container");
   if (!container) return;
 
-  const toast = document.createElement('div');
+  const toast = document.createElement("div");
   toast.className = `toast ${type}`;
   toast.textContent = message;
 
@@ -23,8 +23,8 @@ export const showToast = (message, type = 'success') => {
 
   // Remove toast after 3 seconds
   setTimeout(() => {
-    toast.style.opacity = '0';
-    toast.style.transform = 'translateX(100%)';
+    toast.style.opacity = "0";
+    toast.style.transform = "translateX(100%)";
     setTimeout(() => toast.remove(), 300);
   }, 3000);
 };
@@ -40,18 +40,18 @@ export const storage = {
   },
   remove: (key) => {
     localStorage.removeItem(key);
-  }
+  },
 };
 
 // Fetch products from JSON
 export const fetchProducts = async () => {
   try {
-    const response = await fetch('./data/products.json');
-    if (!response.ok) throw new Error('Failed to fetch products');
+    const response = await fetch("./products.json");
+    if (!response.ok) throw new Error("Failed to fetch products");
     return await response.json();
   } catch (error) {
-    console.error('Error fetching products:', error);
-    showToast('Failed to load products. Please try again later.', 'error');
+    console.error("Error fetching products:", error);
+    showToast("Failed to load products. Please try again later.", "error");
     return [];
   }
 };

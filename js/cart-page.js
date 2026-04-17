@@ -1,5 +1,5 @@
 import { formatCurrency, showToast } from "./utils.js";
-import { cart, wishlist } from "../cart.js";
+import { cart, wishlist } from "./cart.js";
 
 /**
  * Shopping Cart Page Logic
@@ -14,16 +14,16 @@ const init = () => {
 const renderCart = () => {
   const items = cart.getItems();
   const cartList = document.getElementById("cart-items-list");
-  const cartLayout = document.getElementById("cart-layout");
+  const cartContainer = document.getElementById("cart-container");
   const emptyMessage = document.getElementById("empty-cart-message");
 
   if (items.length === 0) {
-    cartLayout.style.display = "none";
+    cartContainer.style.display = "none";
     emptyMessage.style.display = "block";
     return;
   }
 
-  cartLayout.style.display = "grid";
+  cartContainer.style.display = "grid";
   emptyMessage.style.display = "none";
 
   cartList.innerHTML = items
@@ -87,6 +87,7 @@ const setupTheme = () => {
   const themeToggle = document.getElementById("theme-toggle");
   const currentTheme = localStorage.getItem("theme") || "light";
   document.documentElement.setAttribute("data-theme", currentTheme);
+  updateThemeIcon(currentTheme);
 
   themeToggle?.addEventListener("click", () => {
     const newTheme =
@@ -95,8 +96,19 @@ const setupTheme = () => {
         : "light";
     document.documentElement.setAttribute("data-theme", newTheme);
     localStorage.setItem("theme", newTheme);
+    updateThemeIcon(newTheme);
   });
 };
 
+const updateThemeIcon = (theme) => {
+  const icon = document.querySelector("#theme-toggle i");
+  if (icon) {
+    icon.className = theme === "light" ? "fas fa-moon" : "fas fa-sun";
+  }
+};
+
 document.addEventListener("DOMContentLoaded", init);
-window.addEventListener("cartUpdated", updateBadges);
+window.addEventListener("cartUpdated", () => {
+  updateBadges();
+  renderCart();
+});

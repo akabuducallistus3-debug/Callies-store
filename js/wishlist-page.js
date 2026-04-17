@@ -81,6 +81,7 @@ const setupTheme = () => {
   const themeToggle = document.getElementById("theme-toggle");
   const currentTheme = localStorage.getItem("theme") || "light";
   document.documentElement.setAttribute("data-theme", currentTheme);
+  updateThemeIcon(currentTheme);
 
   themeToggle?.addEventListener("click", () => {
     const newTheme =
@@ -89,7 +90,15 @@ const setupTheme = () => {
         : "light";
     document.documentElement.setAttribute("data-theme", newTheme);
     localStorage.setItem("theme", newTheme);
+    updateThemeIcon(newTheme);
   });
+};
+
+const updateThemeIcon = (theme) => {
+  const icon = document.querySelector("#theme-toggle i");
+  if (icon) {
+    icon.className = theme === "light" ? "fas fa-moon" : "fas fa-sun";
+  }
 };
 
 document.addEventListener("DOMContentLoaded", init);
