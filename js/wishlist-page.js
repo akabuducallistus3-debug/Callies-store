@@ -42,9 +42,9 @@ const renderWishlist = () => {
         <a href="product.html?id=${product.id}">
           <h3 class="product-name">${product.name}</h3>
         </a>
-        <div style="display: flex; justify-content: space-between; align-items: center;">
+        <div style="display: flex; justify-content: center;flex-direction: column">
           <span class="product-price">${formatCurrency(product.price)}</span>
-          <button class="add-to-cart-btn" data-id="${product.id}" style="padding: 0.5rem 1rem; border: 1px solid var(--primary-color); color: var(--primary-color); border-radius: 6px; font-weight: 600; font-size: 0.85rem;">Add to Cart</button>
+          <button class="add-to-cart-btn" data-id="${product.id}" style="padding: 0.5rem 1rem; border: 1px solid var(--primary-color); color: #fff; border-radius: 6px; font-weight: 600; font-size: 0.85rem;">Add to Cart</button>
         </div>
       </div>
     </div>
