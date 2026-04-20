@@ -23,23 +23,38 @@
     <nav class="navbar">
       <div class="container nav-content">
         <a href="index.html" class="logo">Callie's Store</a>
-
-        <ul class="nav-links">
+      <ul class="nav-links">
           <li><a href="index.html" class="nav-link">Home</a></li>
           <li><a href="#products" class="nav-link">Shop</a></li>
           <li><a href="#" class="nav-link">Categories</a></li>
         </ul>
 
         <div class="nav-actions">
-          <button id="theme-toggle" class="icon-btn" title="Toggle Dark Mode">
+          <button
+            id="theme-toggle"
+            class="icon-btn"
+            title="Toggle Dark Mode"
+            aria-label="Toggle dark mode"
+            type="button"
+          >
             <i class="fas fa-moon"></i>
           </button>
-          <a href="wishlist.html" class="icon-btn" title="Wishlist">
+          <a
+            href="wishlist.html"
+            class="icon-btn"
+            title="Wishlist"
+            aria-label="Open wishlist"
+          >
             <i class="fas fa-heart"></i>
             <span id="wishlist-count" class="badge">0</span>
           </a>
           <div class="cart-dropdown-container">
-            <a href="cart.html" class="icon-btn" title="Shopping Cart">
+            <a
+              href="cart.html"
+              class="icon-btn"
+              title="Shopping Cart"
+              aria-label="Open shopping cart"
+            >
               <i class="fas fa-shopping-cart"></i>
               <span id="cart-count" class="badge">0</span>
             </a>
@@ -49,6 +64,7 @@
             id="user-btn"
             class="icon-btn"
             title="User Account"
+            aria-label="Open user account"
           >
             <i class="fas fa-user"></i>
           </a>
@@ -60,75 +76,33 @@
     <header class="hero">
       <div class="container">
         <h1 class="fade-in">Elevate Your Lifestyle with Callie's Store</h1>
-        <p class="fade-in" style="animation-delay: 0.2s">
+        <p class="fade-in hero-subtitle">
           Discover curated essentials for your home, office, and everyday life.
           Quality meets modern design.
         </p>
-        <a
-          href="#products"
-          class="btn btn-primary fade-in"
-          style="animation-delay: 0.4s"
-          >Shop Now</a
-        >
+        <a href="#products" class="btn btn-primary fade-in hero-cta">Shop Now</a>
       </div>
     </header>
 
     <!-- Featured Products -->
-    <section id="products" class="container" style="padding: 4rem 0">
+    <section id="products" class="container products-section">
       <h2 class="section-title">Featured Products</h2>
 
       <!-- Filters & Search -->
-      <div
-        class="filters-container"
-        style="
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          margin-bottom: 2rem;
-          flex-wrap: wrap;
-          gap: 1rem;
-        "
-      >
-        <div
-          class="search-box"
-          style="position: relative; flex: 1; min-width: 250px"
-        >
+      <div class="filters-container">
+        <div class="search-box home-search-box">
           <input
             type="text"
             id="search-input"
             placeholder="Search products..."
-            style="
-              width: 100%;
-              padding: 0.75rem 1rem 0.75rem 2.5rem;
-              border-radius: 8px;
-              border: 1px solid var(--border-color);
-              background: var(--card-bg);
-              color: var(--text-main);
-            "
+            aria-label="Search products"
+            class="search-input"
           />
-          <i
-            class="fas fa-search"
-            style="
-              position: absolute;
-              left: 1rem;
-              top: 50%;
-              transform: translateY(-50%);
-              color: var(--text-muted);
-            "
-          ></i>
+          <i class="fas fa-search search-icon"></i>
         </div>
 
-        <div class="filter-actions" style="display: flex; gap: 1rem">
-          <select
-            id="category-filter"
-            style="
-              padding: 0.75rem 1rem;
-              border-radius: 8px;
-              border: 1px solid var(--border-color);
-              background: var(--card-bg);
-              color: var(--text-main);
-            "
-          >
+        <div class="filter-actions home-filter-actions">
+          <select id="category-filter" class="filter-select">
             <option value="all">All Categories</option>
             <option value="Home">Home</option>
             <option value="Clothing">Clothing</option>
@@ -140,16 +114,7 @@
             <option value="Sports">Sports</option>
           </select>
 
-          <select
-            id="sort-filter"
-            style="
-              padding: 0.75rem 1rem;
-              border-radius: 8px;
-              border: 1px solid var(--border-color);
-              background: var(--card-bg);
-              color: var(--text-main);
-            "
-          >
+          <select id="sort-filter" class="filter-select">
             <option value="default">Sort By</option>
             <option value="price-low">Price: Low to High</option>
             <option value="price-high">Price: High to Low</option>
@@ -160,39 +125,27 @@
 
       <div id="product-grid" class="product-grid">
         <!-- Products will be loaded here dynamically -->
-        <div class="skeleton" style="height: 400px"></div>
-        <div class="skeleton" style="height: 400px"></div>
-        <div class="skeleton" style="height: 400px"></div>
+        <div class="skeleton product-skeleton"></div>
+        <div class="skeleton product-skeleton"></div>
+        <div class="skeleton product-skeleton"></div>
       </div>
     </section>
 
     <!-- Newsletter -->
-    <section
-      style="
-        background: var(--card-bg);
-        padding: 4rem 0;
-        border-top: 1px solid var(--border-color);
-      "
-    >
-      <div class="container" style="text-align: center; max-width: 600px">
-        <h2 style="margin-bottom: 1rem">Join Our Newsletter</h2>
-        <p style="color: var(--text-muted); margin-bottom: 2rem">
+    <section class="newsletter-section">
+      <div class="container newsletter-container">
+        <h2 class="newsletter-title">Join Our Newsletter</h2>
+        <p class="newsletter-description">
           Subscribe to get special offers, free giveaways, and
           once-in-a-lifetime deals.
         </p>
-        <form id="newsletter-form" style="display: flex; gap: 0.5rem">
+        <form id="newsletter-form" class="newsletter-form">
           <input
             type="email"
             placeholder="Enter your email"
             required
-            style="
-              flex: 1;
-              padding: 0.75rem 1rem;
-              border-radius: 8px;
-              border: 1px solid var(--border-color);
-              background: var(--bg-color);
-              color: var(--text-main);
-            "
+            aria-label="Email address"
+            class="newsletter-input"
           />
           <button type="submit" class="btn btn-primary">Subscribe</button>
         </form>
@@ -200,71 +153,46 @@
     </section>
 
     <!-- Footer -->
-    <footer style="padding: 4rem 0; border-top: 1px solid var(--border-color)">
-      <div
-        class="container"
-        style="
-          display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-          gap: 2rem;
-        "
-      >
+    <footer class="site-footer">
+      <div class="container footer-grid">
         <div>
-          <h3 class="logo" style="margin-bottom: 1.5rem">Callie's Store</h3>
-          <p style="color: var(--text-muted)">
+          <h3 class="logo footer-logo">Callie's Store</h3>
+          <p class="footer-muted-text">
             Modern essentials for the modern lifestyle.
           </p>
         </div>
         <div>
-          <h4 style="margin-bottom: 1.5rem">Shop</h4>
-          <ul
-            style="
-              display: flex;
-              flex-direction: column;
-              gap: 0.75rem;
-              color: var(--text-muted);
-            "
-          >
-            <li><a href="#">All Products</a></li>
-            <li><a href="#">Featured</a></li>
-            <li><a href="#">New Arrivals</a></li>
+          <h4 class="footer-heading">Shop</h4>
+          <ul class="footer-list">
+            <li><a href="#products">All Products</a></li>
+            <li><a href="#products">Featured</a></li>
+            <li><a href="#products">New Arrivals</a></li>
           </ul>
         </div>
         <div>
-          <h4 style="margin-bottom: 1.5rem">Support</h4>
-          <ul
-            style="
-              display: flex;
-              flex-direction: column;
-              gap: 0.75rem;
-              color: var(--text-muted);
-            "
-          >
-            <li><a href="#">Contact Us</a></li>
+          <h4 class="footer-heading">Support</h4>
+          <ul class="footer-list">
+            <li><a href="mailto:support@calliesstore.com">Contact Us</a></li>
             <li><a href="#">Shipping Policy</a></li>
             <li><a href="#">Returns & Exchanges</a></li>
           </ul>
         </div>
         <div>
-          <h4 style="margin-bottom: 1.5rem">Follow Us</h4>
-          <div style="display: flex; gap: 1rem; font-size: 1.5rem">
-            <a href="#"><i class="fab fa-instagram"></i></a>
-            <a href="#"><i class="fab fa-twitter"></i></a>
-            <a href="#"><i class="fab fa-facebook"></i></a>
+          <h4 class="footer-heading">Follow Us</h4>
+          <div class="social-links">
+            <a href="#" aria-label="Visit our Instagram"
+              ><i class="fab fa-instagram"></i
+            ></a>
+            <a href="#" aria-label="Visit our Twitter"
+              ><i class="fab fa-twitter"></i
+            ></a>
+            <a href="#" aria-label="Visit our Facebook"
+              ><i class="fab fa-facebook"></i
+            ></a>
           </div>
         </div>
       </div>
-      <div
-        class="container"
-        style="
-          margin-top: 4rem;
-          padding-top: 2rem;
-          border-top: 1px solid var(--border-color);
-          text-align: center;
-          color: var(--text-muted);
-          font-size: 0.9rem;
-        "
-      >
+      <div class="container footer-bottom">
         <p>&copy; 2026 Callie's Store. All rights reserved.</p>
       </div>
     </footer>

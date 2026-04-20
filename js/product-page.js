@@ -3,6 +3,8 @@ import {
   formatCurrency,
   getUrlParam,
   showToast,
+  getProductImageUrl,
+  getImageFallbackUrl,
 } from "./utils.js";
 import { cart, wishlist } from "../cart.js";
 
@@ -37,7 +39,7 @@ const renderProductDetails = (product) => {
 
   container.innerHTML = `
     <div class="product-image-gallery fade-in">
-      <img src="${product.image}" alt="${product.name}" style="width: 100%; border-radius: 16px; box-shadow: var(--shadow);">
+      <img src="${getProductImageUrl(product)}" alt="${product.name}" style="width: 100%; border-radius: 16px; box-shadow: var(--shadow);" onerror="this.onerror=null;this.src='${getImageFallbackUrl(product)}';">
     </div>
     <div class="product-info-details fade-in" style="animation-delay: 0.2s;">
       <span class="product-category" style="font-size: 1rem;">${product.category}</span>
@@ -136,7 +138,7 @@ const renderRelatedProducts = (currentProduct, allProducts) => {
       (product) => `
     <div class="product-card">
       <a href="product.html?id=${product.id}">
-        <img src="${product.image}" alt="${product.name}" class="product-image">
+        <img src="${getProductImageUrl(product)}" alt="${product.name}" class="product-image" onerror="this.onerror=null;this.src='${getImageFallbackUrl(product)}';">
       </a>
       <div class="product-info">
         <span class="product-category">${product.category}</span>

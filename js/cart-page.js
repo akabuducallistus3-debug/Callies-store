@@ -1,4 +1,9 @@
-import { formatCurrency, showToast } from "./utils.js";
+import {
+  formatCurrency,
+  showToast,
+  getProductImageUrl,
+  getImageFallbackUrl,
+} from "./utils.js";
 import { cart, wishlist } from "./cart.js";
 
 /**
@@ -30,7 +35,7 @@ const renderCart = () => {
     .map(
       (item) => `
     <div class="cart-item fade-in" style="display: flex; gap: 1.5rem; background: var(--card-bg); padding: 1.5rem; border-radius: 16px; border: 1px solid var(--border-color); align-items: center;">
-      <img src="${item.image}" alt="${item.name}" style="width: 100px; height: 100px; object-fit: cover; border-radius: 8px;">
+      <img src="${getProductImageUrl(item)}" alt="${item.name}" style="width: 100px; height: 100px; object-fit: cover; border-radius: 8px;" onerror="this.onerror=null;this.src='${getImageFallbackUrl(item)}';">
       <div style="flex: 1;">
         <h3 style="font-size: 1.1rem; margin-bottom: 0.25rem;">${item.name}</h3>
         <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 0.5rem;">${item.category}</p>

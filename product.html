@@ -29,20 +29,20 @@
     </div>
   </nav>
 
-  <main class="container" style="padding: 4rem 0;">
-    <div id="product-details" class="product-details-container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 4rem; align-items: start;">
+  <main class="container page-main">
+    <div id="product-details" class="product-details-container">
       <!-- Product details will be loaded here -->
-      <div class="skeleton" style="height: 500px;"></div>
+      <div class="skeleton product-detail-skeleton-image"></div>
       <div class="skeleton-info">
-        <div class="skeleton" style="height: 40px; width: 80%; margin-bottom: 1rem;"></div>
-        <div class="skeleton" style="height: 20px; width: 40%; margin-bottom: 2rem;"></div>
-        <div class="skeleton" style="height: 100px; width: 100%; margin-bottom: 2rem;"></div>
-        <div class="skeleton" style="height: 50px; width: 50%;"></div>
+        <div class="skeleton product-detail-skeleton-title"></div>
+        <div class="skeleton product-detail-skeleton-meta"></div>
+        <div class="skeleton product-detail-skeleton-description"></div>
+        <div class="skeleton product-detail-skeleton-action"></div>
       </div>
     </div>
 
     <!-- Related Products -->
-    <section style="margin-top: 6rem;">
+    <section class="related-products-section">
       <h2 class="section-title">Related Products</h2>
       <div id="related-products" class="product-grid">
         <!-- Related products will be loaded here -->

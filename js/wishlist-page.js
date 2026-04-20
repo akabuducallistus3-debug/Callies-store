@@ -1,4 +1,9 @@
-import { formatCurrency, showToast } from "./utils.js";
+import {
+  formatCurrency,
+  showToast,
+  getProductImageUrl,
+  getImageFallbackUrl,
+} from "./utils.js";
 import { cart, wishlist } from "./cart.js";
 
 /**
@@ -30,7 +35,7 @@ const renderWishlist = () => {
       (product) => `
     <div class="product-card fade-in">
       <a href="product.html?id=${product.id}">
-        <img src="${product.image}" alt="${product.name}" class="product-image">
+        <img src="${getProductImageUrl(product)}" alt="${product.name}" class="product-image" onerror="this.onerror=null;this.src='${getImageFallbackUrl(product)}';">
       </a>
       <div class="product-info">
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">

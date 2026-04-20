@@ -43,104 +43,46 @@
       </div>
     </nav>
 
-    <main class="container" style="padding: 4rem 0">
+    <main class="container page-main">
       <h1 class="section-title">Your Shopping Cart</h1>
 
-      <div
-        id="cart-container"
-        class="cart-layout"
-        style="
-          display: grid;
-          grid-template-columns: 1fr 350px;
-          gap: 3rem;
-          align-items: start;
-        "
-      >
+      <div id="cart-container" class="cart-layout">
         <!-- Cart items will be loaded here -->
-        <div
-          id="cart-items-list"
-          style="display: flex; flex-direction: column; gap: 1.5rem"
-        >
-          <div class="skeleton" style="height: 150px"></div>
-          <div class="skeleton" style="height: 150px"></div>
+        <div id="cart-items-list" class="cart-items-list">
+          <div class="skeleton cart-item-skeleton"></div>
+          <div class="skeleton cart-item-skeleton"></div>
         </div>
 
         <!-- Order Summary -->
-        <div
-          id="order-summary"
-          class="order-summary-card"
-          style="
-            background: var(--card-bg);
-            padding: 2rem;
-            border-radius: 16px;
-            border: 1px solid var(--border-color);
-            position: sticky;
-            top: 100px;
-          "
-        >
-          <h2 style="margin-bottom: 1.5rem; font-size: 1.5rem">
+        <div id="order-summary" class="order-summary-card">
+          <h2 class="summary-title">
             Order Summary
           </h2>
-          <div
-            style="
-              display: flex;
-              justify-content: space-between;
-              margin-bottom: 1rem;
-              color: var(--text-muted);
-            "
-          >
+          <div class="summary-row summary-row-muted">
             <span>Subtotal</span>
             <span id="subtotal-price">$0.00</span>
           </div>
-          <div
-            style="
-              display: flex;
-              justify-content: space-between;
-              margin-bottom: 1rem;
-              color: var(--text-muted);
-            "
-          >
+          <div class="summary-row summary-row-muted">
             <span>Shipping</span>
             <span>Free</span>
           </div>
-          <div
-            style="
-              display: flex;
-              justify-content: space-between;
-              margin-top: 1.5rem;
-              padding-top: 1.5rem;
-              border-top: 1px solid var(--border-color);
-              font-weight: 700;
-              font-size: 1.25rem;
-            "
-          >
+          <div class="summary-row summary-total-row">
             <span>Total</span>
             <span id="total-price">$0.00</span>
           </div>
           <a
             href="checkout.html"
             id="checkout-btn"
-            class="btn btn-primary"
-            style="width: 100%; text-align: center; margin-top: 2rem"
+            class="btn btn-primary checkout-btn"
             >Proceed to Checkout</a
           >
         </div>
       </div>
 
-      <div
-        id="empty-cart-message"
-        style="display: none; text-align: center; padding: 4rem 0"
-      >
-        <i
-          class="fas fa-shopping-cart"
-          style="
-            font-size: 4rem;
-            color: var(--border-color);
-            margin-bottom: 2rem;
-          "
-        ></i>
+      <div id="empty-cart-message" class="empty-state">
+        <i class="fas fa-shopping-cart empty-state-icon"></i>
         <h2>Your cart is empty</h2>
-        <p style="color: var(--text-muted); margin-bottom: 2rem">
+        <p class="empty-state-text">
           Looks like you haven't added anything to your cart yet.
         </p>
         <a href="index.html#products" class="btn btn-primary">Start Shopping</a>

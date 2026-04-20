@@ -1,4 +1,9 @@
-import { formatCurrency, showToast } from './utils.js';
+import {
+  formatCurrency,
+  showToast,
+  getProductImageUrl,
+  getImageFallbackUrl,
+} from "./utils.js";
 import { cart, wishlist } from './cart.js';
 import { auth } from './auth.js';
 
@@ -33,7 +38,7 @@ const renderOrderSummary = (items) => {
   itemsList.innerHTML = items.map(item => `
     <div style="display: flex; justify-content: space-between; align-items: center; gap: 1rem;">
       <div style="display: flex; align-items: center; gap: 1rem;">
-        <img src="${item.image}" alt="${item.name}" style="width: 50px; height: 50px; object-fit: cover; border-radius: 4px;">
+        <img src="${getProductImageUrl(item)}" alt="${item.name}" style="width: 50px; height: 50px; object-fit: cover; border-radius: 4px;" onerror="this.onerror=null;this.src='${getImageFallbackUrl(item)}';">
         <div>
           <h4 style="font-size: 0.9rem; font-weight: 600;">${item.name}</h4>
           <p style="font-size: 0.8rem; color: var(--text-muted);">Qty: ${item.quantity}</p>

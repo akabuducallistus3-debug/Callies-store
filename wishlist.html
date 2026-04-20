@@ -43,27 +43,17 @@
       </div>
     </nav>
 
-    <main class="container" style="padding: 4rem 0">
+    <main class="container page-main">
       <h1 class="section-title">Your Wishlist</h1>
 
       <div id="wishlist-grid" class="product-grid">
         <!-- Wishlist items will be loaded here -->
       </div>
 
-      <div
-        id="empty-wishlist-message"
-        style="display: none; text-align: center; padding: 4rem 0"
-      >
-        <i
-          class="far fa-heart"
-          style="
-            font-size: 4rem;
-            color: var(--border-color);
-            margin-bottom: 2rem;
-          "
-        ></i>
+      <div id="empty-wishlist-message" class="empty-state">
+        <i class="far fa-heart empty-state-icon"></i>
         <h2>Your wishlist is empty</h2>
-        <p style="color: var(--text-muted); margin-bottom: 2rem">
+        <p class="empty-state-text">
           Save items you love to your wishlist!
         </p>
         <a href="index.html#products" class="btn btn-primary"

@@ -1,4 +1,11 @@
-import { fetchProducts, formatCurrency, debounce, showToast } from "./utils.js";
+import {
+  fetchProducts,
+  formatCurrency,
+  debounce,
+  showToast,
+  getProductImageUrl,
+  getImageFallbackUrl,
+} from "./utils.js";
 import { cart, wishlist } from "./cart.js";
 import { auth } from "./auth.js";
 
@@ -75,7 +82,7 @@ const renderProducts = (products) => {
       (product) => `
     <div class="product-card fade-in">
       <a href="product.html?id=${product.id}">
-        <img src="${product.image}" alt="${product.name}" class="product-image" loading="lazy">
+        <img src="${getProductImageUrl(product)}" alt="${product.name}" class="product-image" loading="lazy" onerror="this.onerror=null;this.src='${getImageFallbackUrl(product)}';">
       </a>
       <div class="product-info">
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">

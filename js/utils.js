@@ -74,3 +74,22 @@ export const debounce = (func, wait) => {
     timeout = setTimeout(later, wait);
   };
 };
+
+// Resolve product image with graceful fallback
+export const getProductImageUrl = (product) => {
+  if (!product) return "https://picsum.photos/seed/callie-default/800/800";
+
+  // Existing local path (if assets are later added back)
+  if (product.image && !product.image.includes("undefined")) {
+    return product.image;
+  }
+
+  // Fallback remote image when local assets are missing
+  const seed = `callie-${product.id || "item"}`;
+  return `https://picsum.photos/seed/${seed}/800/800`;
+};
+
+export const getImageFallbackUrl = (product) => {
+  const seed = `callie-fallback-${product?.id || "item"}`;
+  return `https://picsum.photos/seed/${seed}/800/800`;
+};
