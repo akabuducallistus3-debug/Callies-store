@@ -59,18 +59,28 @@ const renderWishlist = () => {
 
   // Event Listeners
   grid.addEventListener("click", (e) => {
-    const id = parseInt(e.target.closest("button")?.dataset.id);
-    if (!id) return;
-
-    const product = items.find((p) => p.id === id);
-
-    if (e.target.closest(".remove-wishlist-btn")) {
+    const removeWishlistBtn = e.target.closest(".remove-wishlist-btn");
+    const addToCartBtn = e.target.closest(".add-to-cart-btn");
+    
+    if (removeWishlistBtn) {
+      e.preventDefault();
+      e.stopPropagation();
+      const id = parseInt(removeWishlistBtn.dataset.id);
+      const product = items.find((p) => p.id === id);
       wishlist.toggleItem(product);
       renderWishlist();
       updateBadges();
-    } else if (e.target.closest(".add-to-cart-btn")) {
+      return;
+    }
+
+    if (addToCartBtn) {
+      e.preventDefault();
+      e.stopPropagation();
+      const id = parseInt(addToCartBtn.dataset.id);
+      const product = items.find((p) => p.id === id);
       cart.addItem(product);
       updateBadges();
+      return;
     }
   });
 };

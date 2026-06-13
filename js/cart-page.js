@@ -63,21 +63,40 @@ const renderCart = () => {
 
   // Event Listeners
   cartList.addEventListener("click", (e) => {
-    const id = parseInt(e.target.closest("button")?.dataset.id);
-    if (!id) return;
-
-    if (e.target.closest(".decrease")) {
+    const decreaseBtn = e.target.closest(".decrease");
+    const increaseBtn = e.target.closest(".increase");
+    const removeBtn = e.target.closest(".remove-btn");
+    
+    if (decreaseBtn) {
+      e.preventDefault();
+      e.stopPropagation();
+      const id = parseInt(decreaseBtn.dataset.id);
       const item = items.find((i) => i.id === id);
       if (item.quantity > 1) cart.updateQuantity(id, item.quantity - 1);
       else cart.removeItem(id);
-    } else if (e.target.closest(".increase")) {
+      renderCart();
+      return;
+    }
+
+    if (increaseBtn) {
+      e.preventDefault();
+      e.stopPropagation();
+      const id = parseInt(increaseBtn.dataset.id);
       const item = items.find((i) => i.id === id);
       cart.updateQuantity(id, item.quantity + 1);
-    } else if (e.target.closest(".remove-btn")) {
+      renderCart();
+      return;
+    }
+
+    if (removeBtn) {
+      e.preventDefault();
+      e.stopPropagation();
+      const id = parseInt(removeBtn.dataset.id);
       cart.removeItem(id);
       showToast("Item removed from cart.");
+      renderCart();
+      return;
     }
-    renderCart();
   });
 };
 

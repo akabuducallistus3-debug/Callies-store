@@ -6,7 +6,7 @@ import {
   getProductImageUrl,
   getImageFallbackUrl,
 } from "./utils.js";
-import { cart, wishlist } from "../cart.js";
+import { cart, wishlist } from "./cart.js";
 
 /**
  * Product Details Page Logic
@@ -100,13 +100,17 @@ const renderProductDetails = (product) => {
   });
 
   // Add to cart
-  document.getElementById("add-to-cart-btn").addEventListener("click", () => {
+  document.getElementById("add-to-cart-btn").addEventListener("click", (e) => {
+    e.preventDefault();
+    e.stopPropagation();
     cart.addItem(product, qty);
     updateBadges();
   });
 
   // Wishlist toggle
   document.getElementById("wishlist-btn").addEventListener("click", (e) => {
+    e.preventDefault();
+    e.stopPropagation();
     wishlist.toggleItem(product);
     const btn = e.currentTarget;
     const icon = btn.querySelector("i");

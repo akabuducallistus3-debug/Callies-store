@@ -10,22 +10,39 @@ export const formatCurrency = (amount) => {
   }).format(amount);
 };
 
+// Track current toast and timeout
+let currentToast = null;
+let currentToastTimeout = null;
+
 // Show toast notification
 export const showToast = (message, type = "success") => {
   const container = document.getElementById("toast-container");
   if (!container) return;
+
+  // Clear existing toast and timeout
+  if (currentToast) {
+    currentToast.remove();
+  }
+  if (currentToastTimeout) {
+    clearTimeout(currentToastTimeout);
+  }
 
   const toast = document.createElement("div");
   toast.className = `toast ${type}`;
   toast.textContent = message;
 
   container.appendChild(toast);
+  currentToast = toast;
 
   // Remove toast after 3 seconds
-  setTimeout(() => {
+  currentToastTimeout = setTimeout(() => {
     toast.style.opacity = "0";
     toast.style.transform = "translateX(100%)";
-    setTimeout(() => toast.remove(), 300);
+    setTimeout(() => {
+      toast.remove();
+      currentToast = null;
+      currentToastTimeout = null;
+    }, 300);
   }, 3000);
 };
 

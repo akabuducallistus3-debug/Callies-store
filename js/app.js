@@ -116,13 +116,9 @@ const handleProductGridClick = (e) => {
   const addToCartBtn = e.target.closest(".add-to-cart-btn");
   const wishlistBtn = e.target.closest(".wishlist-btn");
 
-  if (addToCartBtn) {
-    const id = parseInt(addToCartBtn.dataset.id);
-    const product = allProducts.find((p) => p.id === id);
-    if (product) cart.addItem(product);
-  }
-
   if (wishlistBtn) {
+    e.preventDefault();
+    e.stopPropagation();
     const id = parseInt(wishlistBtn.dataset.id);
     const product = allProducts.find((p) => p.id === id);
     if (product) {
@@ -130,6 +126,16 @@ const handleProductGridClick = (e) => {
       updateBadges();
       renderProducts(filteredProducts); // Re-render to update heart icon
     }
+    return;
+  }
+
+  if (addToCartBtn) {
+    e.preventDefault();
+    e.stopPropagation();
+    const id = parseInt(addToCartBtn.dataset.id);
+    const product = allProducts.find((p) => p.id === id);
+    if (product) cart.addItem(product);
+    return;
   }
 };
 
