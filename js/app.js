@@ -106,28 +106,31 @@ const renderProducts = (products) => {
   `,
     )
     .join("");
+};
 
-  // Add event listeners to buttons using event delegation
-  productGrid.addEventListener("click", (e) => {
-    const addToCartBtn = e.target.closest(".add-to-cart-btn");
-    const wishlistBtn = e.target.closest(".wishlist-btn");
+// Handle product grid clicks
+const handleProductGridClick = (e) => {
+  const productGrid = document.getElementById("product-grid");
+  if (!productGrid) return;
 
-    if (addToCartBtn) {
-      const id = parseInt(addToCartBtn.dataset.id);
-      const product = allProducts.find((p) => p.id === id);
-      if (product) cart.addItem(product);
+  const addToCartBtn = e.target.closest(".add-to-cart-btn");
+  const wishlistBtn = e.target.closest(".wishlist-btn");
+
+  if (addToCartBtn) {
+    const id = parseInt(addToCartBtn.dataset.id);
+    const product = allProducts.find((p) => p.id === id);
+    if (product) cart.addItem(product);
+  }
+
+  if (wishlistBtn) {
+    const id = parseInt(wishlistBtn.dataset.id);
+    const product = allProducts.find((p) => p.id === id);
+    if (product) {
+      wishlist.toggleItem(product);
+      updateBadges();
+      renderProducts(filteredProducts); // Re-render to update heart icon
     }
-
-    if (wishlistBtn) {
-      const id = parseInt(wishlistBtn.dataset.id);
-      const product = allProducts.find((p) => p.id === id);
-      if (product) {
-        wishlist.toggleItem(product);
-        updateBadges();
-        renderProducts(filteredProducts); // Re-render to update heart icon
-      }
-    }
-  });
+  }
 };
 
 // Setup Event Listeners
@@ -173,6 +176,10 @@ const setupEventListeners = () => {
     showToast("Thanks for subscribing!");
     newsletterForm.reset();
   });
+
+  // Product grid click listener (added ONCE only!)
+  const productGrid = document.getElementById("product-grid");
+  productGrid?.addEventListener("click", handleProductGridClick);
 
   // Listen for cart updates
   window.addEventListener("cartUpdated", updateBadges);
